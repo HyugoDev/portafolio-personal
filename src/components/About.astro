@@ -1,0 +1,92 @@
+---
+import { Card } from "@/components/ui/card";
+import { Code2, Database, Globe, Zap } from '@lucide/astro';
+
+const skills = [
+    {
+      icon: Code2,
+      title: "Lenguajes",
+      description: "Java, JavaScript, HTML, CSS, SQL",
+    },
+    {
+      icon: Globe,
+      title: "Frontend",
+      description: "React, Next.js, diseño web",
+    },
+    {
+      icon: Database,
+      title: "Backend",
+      description: "Java SE, Spring, Hibernate, Node.js",
+    },
+    {
+      icon: Zap,
+      title: "Herramientas",
+      description: "Git, GitHub, VS Code, IntelliJ IDEA",
+    },
+  ];
+
+
+---
+
+<section
+  class="py-32 relative flex items-center justify-center overflow-hidden"
+>
+  <div class="container px-4">
+    <div class="max-w-6xl mx-auto">
+      {/* Header */}
+      <div class="text-center space-y-4 mb-16">
+        <h2 class="text-sm font-mono text-primary uppercase tracking-wider">
+          Sobre Mí
+        </h2>
+        <p class="text-4xl md:text-5xl font-bold text-balance">
+          Apasionado por el <span class="text-primary"
+            >desarrollo de software</span
+          >
+        </p>
+      </div>
+
+      {/* Bio */}
+      <div class="max-w-3xl mx-auto mb-16">
+        <Card
+          className="p-8 md:p-12 bg-card/50 backdrop-blur-sm border-border/50"
+        >
+          <p
+            class="text-lg text-muted-foreground leading-relaxed text-pretty"
+          >
+            Desarrollador de software junior con experiencia práctica en Java,
+            bases de datos SQL y desarrollo web. Enfocado en aprender
+            rápidamente, trabajar en equipo y aportar soluciones eficientes
+            siguiendo buenas prácticas de desarrollo. Con habilidades en React,
+            Node.js y metodologías ágiles.
+          </p>
+        </Card>
+      </div>
+
+      {/* Skills Grid */}
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+          skills.map((skill, index) => (
+            <Card
+              key={index}
+              className="p-6 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 group"
+            >
+              <div class="space-y-4">
+                <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <skill.icon class="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <h3 class="font-semibold mb-2">{skill.title}</h3>
+                  <p class="text-sm text-muted-foreground">
+                    {skill.description}
+                  </p>
+                </div>
+              </div>
+            </Card>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+
